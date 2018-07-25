@@ -1,11 +1,14 @@
 {
   "name": "keyboard-music",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create sounds and animations with keyboard input(a-z & space)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "abdul ghaffar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "paper": "^0.11.5"
+  }
 }
