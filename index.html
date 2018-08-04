@@ -7,23 +7,29 @@
     <link rel="stylesheet" href="style.css">
     <title>Music Keyboard</title>
     <script type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.14/howler.js"></script>
+
     <!-- Define inlined PaperScript associate it with myCanvas -->
     <script type="text/paperscript" canvas="myCanvas">
+
+      var circles = [];
 
       function onKeyDown(event) {
         var maxPoint = new Point(view.size.width, view.size.height);
         var randomPoint = Point.random();
         var point = maxPoint * randomPoint;
-        new Path.Circle(point, 50).fillColor = 'red';
+        var newCircle = new Path.Circle(point, 500)
+        newCircle.fillColor = 'red';
 
+
+        circles.push(newCircle);
       }
 
-      var animateCircle = new Path.Circle(new Point(200, 300), 50);
-      animateCircle.fillColor = 'orange';
-
       function onFrame(event) {
-        animateCircle.fillColor.hue += 1;
-        animateCircle.scale(.9);
+        for(var i = 0; i < circles.length; i++) {
+          circles[i].fillColor.hue += 1;
+          circles[i].scale(.9);
+        }
       }
 
     </script>
@@ -31,7 +37,6 @@
 
   <body>
     <canvas id="myCanvas" resize></canvas>
-    <!-- <script type="text/javascript" src="index.js"></script> -->
   </body>
 
 </html>
